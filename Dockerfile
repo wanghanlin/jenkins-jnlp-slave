@@ -2,9 +2,9 @@ FROM jenkinsci/jnlp-slave:3.19-1
 
 USER root
 
-RUN usermod -a -G docker jenkins
-
 RUN curl -sSL https://get.docker.com/ | sh
+
+RUN usermod -a -G docker jenkins
 
 RUN curl --silent --location https://deb.nodesource.com/setup_10.x | bash -
 
