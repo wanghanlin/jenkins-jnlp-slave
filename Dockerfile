@@ -13,4 +13,6 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s
     chmod +x ./kubectl && \
     mv ./kubectl /usr/local/bin/kubectl
 
+RUN usermod -a -G docker jenkins
+
 USER jenkins
