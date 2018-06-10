@@ -6,8 +6,6 @@ RUN curl -sSL https://get.docker.com/ | sh
 
 RUN curl --silent --location https://deb.nodesource.com/setup_10.x | bash -
 
-RUN curl -o- -L https://yarnpkg.com/install.sh | bash
-
 RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" && \
     unzip awscli-bundle.zip && \
     ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws && \
@@ -20,3 +18,5 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s
 RUN usermod -a -G docker jenkins
 
 USER jenkins
+
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash
