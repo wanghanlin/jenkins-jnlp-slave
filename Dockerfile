@@ -2,11 +2,11 @@ FROM jenkinsci/jnlp-slave:3.19-1
 
 USER root
 
+RUN curl --silent --location https://deb.nodesource.com/setup_10.x | bash -
+
 RUN curl -sSL https://get.docker.com/ | sh
 
 RUN usermod -a -G docker jenkins
-
-RUN curl --silent --location https://deb.nodesource.com/setup_10.x | bash -
 
 RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" && \
     unzip awscli-bundle.zip && \
@@ -17,6 +17,6 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s
     chmod +x ./kubectl && \
     mv ./kubectl /usr/local/bin/kubectl
 
-RUN npm install --global yarn
+RUN apt-get update && apt-get install nodejs -y && npm install --global yarn
 
 USER jenkins
