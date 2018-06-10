@@ -20,6 +20,6 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s
 RUN apt-get update && \
     apt-get install build-essential nodejs -y && \
     npm install --global yarn && \
-    npm install --global node-sass
+    npm install --global --unsafe-perm node-sass 
 
 USER jenkins
