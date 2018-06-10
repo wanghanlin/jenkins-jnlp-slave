@@ -8,7 +8,7 @@ RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.
     unzip awscli-bundle.zip && \
     sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
     
-RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && 
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
     chmod +x ./kubectl && sudo mv ./kubectl /usr/local/bin/kubectl
 
 USER jenkins
