@@ -2,6 +2,8 @@ FROM jenkinsci/jnlp-slave:3.19-1
 
 USER root
 
+RUN usermod -a -G docker jenkins
+
 RUN curl -sSL https://get.docker.com/ | sh
 
 RUN curl --silent --location https://deb.nodesource.com/setup_10.x | bash -
@@ -15,8 +17,6 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s
     chmod +x ./kubectl && \
     mv ./kubectl /usr/local/bin/kubectl
 
-RUN usermod -a -G docker jenkins
+RUN npm install --global yarn
 
 USER jenkins
-
-RUN curl -o- -L https://yarnpkg.com/install.sh | bash
