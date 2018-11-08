@@ -1,8 +1,8 @@
-FROM jenkinsci/jnlp-slave:3.23-1
+FROM jenkinsci/jnlp-slave:3.27-1
 
 USER root
 
-RUN curl --silent --location https://deb.nodesource.com/setup_10.x | bash -
+RUN curl --silent --location https://deb.nodesource.com/setup_11.x | bash -
 
 RUN curl -sSL https://get.docker.com/ | sh
 
