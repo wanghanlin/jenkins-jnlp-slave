@@ -23,3 +23,5 @@ RUN apt-get update && \
     npm install --global --unsafe-perm node-sass 
 
 USER jenkins
+
+RUN mkdir -p /home/jenkins/.ssh
