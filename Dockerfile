@@ -9,12 +9,9 @@ RUN curl -sSL https://get.docker.com/ | sh
 
 RUN usermod -a -G docker jenkins
 
-RUN apt-get update && apt-get install zip python -y
+RUN apt-get update && apt-get install python-pip -y
 
-RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" && \
-    unzip awscli-bundle.zip && \
-    ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws && \
-    rm -rf awscli-bundle*
+RUN pip install awscli
     
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
     chmod +x ./kubectl && \
