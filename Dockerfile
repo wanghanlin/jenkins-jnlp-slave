@@ -9,7 +9,7 @@ RUN curl -sSL https://get.docker.com/ | sh
 
 RUN usermod -a -G docker jenkins
 
-RUN apt-get update && apt-get install zip python3 -y
+RUN apt-get update && apt-get install zip python3 python-is-python3 -y
 
 RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" && \
     unzip awscli-bundle.zip && \
